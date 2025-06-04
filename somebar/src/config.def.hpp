@@ -13,8 +13,8 @@ constexpr int paddingY = 3;
 constexpr const char* font = "CaskaydiaMono Nerd Font 12";
 
 constexpr ColorScheme colorInactive = {Color(0xbb, 0xbb, 0xbb), Color(0x22, 0x22, 0x22)};
-constexpr ColorScheme colorActive = {Color(0xee, 0xee, 0xee), Color(0x00, 0x55, 0x77)};
-constexpr const char* termcmd[] = {"foot", nullptr};
+constexpr ColorScheme colorActive = {Color(0xee, 0xee, 0xee), Color(0x5e, 0x81, 0xac)};
+constexpr const char* termcmd[] = {"kitty", nullptr};
 
 static std::vector<std::string> tagNames = {
 	"1", "2", "3",
