@@ -14,7 +14,7 @@ static const unsigned int gappiv           = 10; /* vert inner gap between windo
 static const unsigned int gappoh           = 10; /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov           = 10; /* vert outer gap between windows and screen edge */
 static const float rootcolor[]       = COLOR(0x222222ff);
-static const float bordercolor[]     = COLOR(0x5e81acff);
+static const float bordercolor[]     = COLOR(0x212021ff);
 static const float focuscolor[]      = COLOR(0x5e81acff);
 static const float urgentcolor[]     = COLOR(0xff0000ff);
 /* This conforms to the xdg-protocol. Set the alpha to zero to restore the old behavior */

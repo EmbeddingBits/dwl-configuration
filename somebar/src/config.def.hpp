@@ -18,8 +18,7 @@ constexpr const char* termcmd[] = {"kitty", nullptr};
 
 static std::vector<std::string> tagNames = {
 	"  ", " 󰈹 ", "  ",
-	"  ", "  ", " 6 ",
-	" 7 ", " 8 ", " 9 ",
+	"  ", "  ",
 };
 
 constexpr Button buttons[] = {
