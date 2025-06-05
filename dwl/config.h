@@ -8,7 +8,7 @@ static const int sloppyfocus         = 1;  /* focus follows mouse */
 static const int bypass_surface_visibility = 0;  /* 1 means idle inhibitors will disable idle tracking even if it's surface isn't visible  */
 static const int smartgaps                 = 0;  /* 1 means no outer gap when there is only one window */
 static const int monoclegaps               = 0;  /* 1 means outer gaps in monocle layout */
-static const unsigned int borderpx  = 1;  /* border pixel of windows */
+static const unsigned int borderpx  = 2;  /* border pixel of windows */
 static const unsigned int gappih           = 10; /* horiz inner gap between windows */
 static const unsigned int gappiv           = 10; /* vert inner gap between windows */
 static const unsigned int gappoh           = 10; /* horiz outer gap between windows and screen edge */
@@ -125,37 +125,35 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[] = { "kitty", NULL };
-static const char *menucmd[] = { "wmenu-run", NULL };
-static const char *screenshot_full[] = { "grim", "$(xdg-user-dir PICTURES)/screenshot-$(date +%s).png", NULL };
-static const char *screenshot_area[] = { "hyprshot", "-m", "region", "-o", "$(xdg-user-dir Pictures/Screenshots)", NULL }; // Corrected line: added comma before NULL
+static const char *termcmd[]         = { "kitty", NULL };
+static const char *menucmd[]         = { "wmenu-run", NULL };
+static const char *screenshot_area[] = { "hyprshot", "-m", "region", "-o", "Pictures/Screenshots/", NULL }; // Corrected line: added comma before NULL
 
 // Volume commands
-static const char *volume_up[] = { "pamixer", "--increase", "5", NULL };
+static const char *volume_up[]   = { "pamixer", "--increase", "5", NULL };
 static const char *volume_down[] = { "pamixer", "--decrease", "5", NULL };
 static const char *volume_mute[] = { "pamixer", "--toggle-mute", NULL };
 static const Key keys[] = {
     /* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
-      { 0,                         XKB_KEY_Print,        spawn,        {.v = screenshot_full} }, // Full screenshot (Print Screen key)
-    { WLR_MODIFIER_SHIFT,        XKB_KEY_Print,        spawn,        {.v = screenshot_area} }, // Area screenshot (Shift + Print Screen)
-    { 0,                         XKB_KEY_XF86AudioRaiseVolume, spawn, {.v = volume_up} },    // Volume up (Volume Up key)
-    { 0,                         XKB_KEY_XF86AudioLowerVolume, spawn, {.v = volume_down} },   // Volume down (Volume Down key)
-    { 0,                         XKB_KEY_XF86AudioMute, spawn,       {.v = volume_mute} },
+    { MODKEY,                    XKB_KEY_s,                       spawn,       {.v = screenshot_area} }, // Area screenshot (Shift + Print Screen)
+    { 0,                         XKB_KEY_XF86AudioRaiseVolume,    spawn,       {.v = volume_up} },    // Volume up (Volume Up key)
+    { 0,                         XKB_KEY_XF86AudioLowerVolume,    spawn,       {.v = volume_down} },   // Volume down (Volume Down key)
+    { 0,                         XKB_KEY_XF86AudioMute,           spawn,       {.v = volume_mute} },
     /* modifier                  key                   function       argument */
-    { MODKEY,                    XKB_KEY_r,            spawn,        {.v = menucmd} },
-    { MODKEY,                    XKB_KEY_q,            spawn,        {.v = termcmd} },
-    { MODKEY,                    XKB_KEY_j,            focusstack,   {.i = +1} },
-    { MODKEY,                    XKB_KEY_k,            focusstack,   {.i = -1} },
-    { MODKEY,                    XKB_KEY_i,            incnmaster,   {.i = +1} },
-    { MODKEY,                    XKB_KEY_d,            incnmaster,   {.i = -1} },
-    { MODKEY,                    XKB_KEY_h,            setmfact,     {.f = -0.05f} },
-    { MODKEY,                    XKB_KEY_l,            setmfact,     {.f = +0.05f} },
-    { MODKEY|WLR_MODIFIER_LOGO,  XKB_KEY_h,          incgaps,       {.i = +1 } },
-    { MODKEY|WLR_MODIFIER_LOGO,  XKB_KEY_l,          incgaps,       {.i = -1 } },
-    { MODKEY|WLR_MODIFIER_LOGO|WLR_MODIFIER_SHIFT,   XKB_KEY_H,      incogaps,      {.i = +1 } },
-    { MODKEY|WLR_MODIFIER_LOGO|WLR_MODIFIER_SHIFT,   XKB_KEY_L,      incogaps,      {.i = -1 } },
-    { MODKEY|WLR_MODIFIER_LOGO|WLR_MODIFIER_CTRL,    XKB_KEY_h,      incigaps,      {.i = +1 } },
-    { MODKEY|WLR_MODIFIER_LOGO|WLR_MODIFIER_CTRL,    XKB_KEY_l,      incigaps,      {.i = -1 } },
+    { MODKEY,                    XKB_KEY_r,                       spawn,       {.v = menucmd} },
+    { MODKEY,                    XKB_KEY_q,                       spawn,       {.v = termcmd} },
+    { MODKEY,                    XKB_KEY_j,          focusstack,               {.i = +1} },
+    { MODKEY,                    XKB_KEY_k,          focusstack,               {.i = -1} },
+    { MODKEY,                    XKB_KEY_i,          incnmaster,               {.i = +1} },
+    { MODKEY,                    XKB_KEY_d,          incnmaster,               {.i = -1} },
+    { MODKEY,                    XKB_KEY_h,          setmfact,                 {.f = -0.05f} },
+    { MODKEY,                    XKB_KEY_l,          setmfact,                 {.f = +0.05f} },
+    { MODKEY|WLR_MODIFIER_LOGO,  XKB_KEY_h,          incgaps,                  {.i = +1 } },
+    { MODKEY|WLR_MODIFIER_LOGO,  XKB_KEY_l,          incgaps,                  {.i = -1 } },
+    { MODKEY|WLR_MODIFIER_LOGO|WLR_MODIFIER_SHIFT,   XKB_KEY_H,      incogaps, {.i = +1 } },
+    { MODKEY|WLR_MODIFIER_LOGO|WLR_MODIFIER_SHIFT,   XKB_KEY_L,      incogaps, {.i = -1 } },
+    { MODKEY|WLR_MODIFIER_LOGO|WLR_MODIFIER_CTRL,    XKB_KEY_h,      incigaps, {.i = +1 } },
+    { MODKEY|WLR_MODIFIER_LOGO|WLR_MODIFIER_CTRL,    XKB_KEY_l,      incigaps, {.i = -1 } },
     { MODKEY|WLR_MODIFIER_LOGO,  XKB_KEY_0,          togglegaps,     {0} },
     { MODKEY|WLR_MODIFIER_LOGO|WLR_MODIFIER_SHIFT,   XKB_KEY_parenright,defaultgaps,    {0} },
     { MODKEY,                    XKB_KEY_y,          incihgaps,     {.i = +1 } },
@@ -168,7 +166,7 @@ static const Key keys[] = {
     { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_O,          incovgaps,     {.i = -1 } },
     { MODKEY,                    XKB_KEY_Return,       zoom,         {0} },
     { MODKEY,                    XKB_KEY_Tab,          view,         {0} },
-    { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_C,            killclient,   {0} },
+    { MODKEY,                    XKB_KEY_c,            killclient,   {0} },
     { MODKEY,                    XKB_KEY_t,            setlayout,    {.v = &layouts[0]} },
     { MODKEY,                    XKB_KEY_f,            setlayout,    {.v = &layouts[1]} },
     { MODKEY,                    XKB_KEY_m,            setlayout,    {.v = &layouts[2]} },
