@@ -1,0 +1,5 @@
+#!/bin/sh
+
+swww-daemon &
+swww img -t grow ~/Pictures/Wallpapers/Nord/55.png
+dunst &

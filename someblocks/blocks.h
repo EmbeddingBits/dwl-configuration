@@ -2,7 +2,7 @@
 static const Block blocks[] = {
     /*Icon*/    /*Command*/                  /*Update Interval*/    /*Update Signal*/
     {"  ", "cat /sys/class/power_supply/BAT0/capacity | sed 's/$/%/'", 5,      0},
-    {"  ", "pamixer --get-volume | sed 's/$/%/'",                   5,      0},
+    {"  ", "pamixer --get-volume | sed 's/$/%/'",                   1,      0},
     {"󱑃  ", "date +%H:%M",                                           5,      0},
     {"  ", "free -h | awk '/^Mem/ { print $3 }' | sed s/i//g",      30,     0},
     {"  ", "sh ~/dwl-configuration/scripts/wifi.sh",                       5,      0},

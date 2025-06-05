@@ -1,0 +1,4 @@
+#!/bin/sh
+someblocks &
+exec dwl -s somebar
+fish swww-sh
