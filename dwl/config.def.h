@@ -126,7 +126,8 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 
 /* commands */
 static const char *termcmd[]         = { "kitty", NULL };
-static const char *menucmd[]         = { "bemenu-run", "--tf", "#5e81ac", "--tb", "#000000", "--hf", "#2e3440", "--hb", "#5e81ac", "--fn", "JetBrainsMono Nerd Font", NULL };
+//sstatic const char *menucmd[]         = { "wmenu-run", "--tf", "#5e81ac", "--tb", "#000000", "--hf", "#2e3440", "--hb", "#5e81ac", "--fn", "JetBrainsMono Nerd Font", NULL };
+static const char *menucmd[]         = { "wmenu-run", NULL };
 static const char *screenshot_area[] = { "hyprshot", "-m", "region", "-o", "Pictures/Screenshots/", NULL }; // Corrected line: added comma before NULL
 
 // Volume commands

@@ -4,7 +4,7 @@ static const Block blocks[] = {
     {"[   ", "free -h | awk '/^Mem/ { print $3 }' | sed s/i//g",      5,     0},
     {"[   ", "cat /sys/class/power_supply/BAT0/capacity | sed 's/$/%/'", 5,      0},
     {"[   ", "pamixer --get-volume | sed 's/$/%/'",                   1,      0},
-    {"[ 󱑃  ", "date +%H:%M",                                           5,      0},
+    {"[ 󱑃  ", "date +%I:%M",                                           5,      0},
     {"[   ", "sh ~/dwl-configuration/scripts/wifi.sh | sed 's/$/ ]/'",                5,      0},
     
     /* Updates whenever "pkill -SIGRTMIN+10 someblocks" is ran */
