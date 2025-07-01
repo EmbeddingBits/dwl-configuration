@@ -9,10 +9,10 @@ static const int bypass_surface_visibility = 0;  /* 1 means idle inhibitors will
 static const int smartgaps                 = 0;  /* 1 means no outer gap when there is only one window */
 static const int monoclegaps               = 0;  /* 1 means outer gaps in monocle layout */
 static const unsigned int borderpx  = 2;  /* border pixel of windows */
-static const unsigned int gappih           = 10; /* horiz inner gap between windows */
-static const unsigned int gappiv           = 10; /* vert inner gap between windows */
-static const unsigned int gappoh           = 10; /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov           = 10; /* vert outer gap between windows and screen edge */
+static const unsigned int gappih           = 15; /* horiz inner gap between windows */
+static const unsigned int gappiv           = 15; /* vert inner gap between windows */
+static const unsigned int gappoh           = 15; /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov           = 15; /* vert outer gap between windows and screen edge */
 static const float rootcolor[]       = COLOR(0x222222ff);
 static const float bordercolor[]     = COLOR(0x212021ff);
 static const float focuscolor[]      = COLOR(0x5e81acff);
@@ -125,9 +125,8 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[]         = { "kitty", NULL };
-//sstatic const char *menucmd[]         = { "wmenu-run", "--tf", "#5e81ac", "--tb", "#000000", "--hf", "#2e3440", "--hb", "#5e81ac", "--fn", "JetBrainsMono Nerd Font", NULL };
-static const char *menucmd[]         = { "wmenu-run", NULL };
+static const char *termcmd[]         = { "foot", NULL };
+static const char *menucmd[]         = { "bemenu-run", "--tf", "#5e81ac", "--tb", "#000000", "--hf", "#2e3440", "--hb", "#5e81ac", "--fn", "JetBrainsMono Nerd Font", NULL };
 static const char *screenshot_area[] = { "hyprshot", "-m", "region", "-o", "Pictures/Screenshots/", NULL }; // Corrected line: added comma before NULL
 
 // Volume commands
