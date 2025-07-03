@@ -14,8 +14,8 @@ static const unsigned int gappiv           = 20; /* vert inner gap between windo
 static const unsigned int gappoh           = 20; /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov           = 20; /* vert outer gap between windows and screen edge */
 static const float rootcolor[]       = COLOR(0x222222ff);
-static const float bordercolor[]     = COLOR(0x212021ff);
-static const float focuscolor[]      = COLOR(0x5e81acff);
+static const float bordercolor[]     = COLOR(0xff);
+static const float focuscolor[]      = COLOR(0x89b4faff);
 static const float urgentcolor[]     = COLOR(0xff0000ff);
 /* This conforms to the xdg-protocol. Set the alpha to zero to restore the old behavior */
 static const float fullscreen_bg[]   = {0.1f, 0.1f, 0.1f, 1.0f}; /* You can also use glsl colors */
@@ -126,7 +126,7 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 
 /* commands */
 static const char *termcmd[]         = { "foot", NULL };
-static const char *menucmd[]         = { "bemenu-run", "--tf", "#5e81ac", "--tb", "#000000", "--hf", "#2e3440", "--hb", "#5e81ac", "--fn", "JetBrainsMono Nerd Font", NULL };
+static const char *menucmd[]         = { "bemenu-run", "--tf", "#89b4fa", "--tb", "#000000", "--hf", "#181825", "--hb", "#89b4fa", "--fn", "JetBrainsMono Nerd Font", NULL };
 static const char *screenshot_area[] = { "hyprshot", "-m", "region", "-o", "Pictures/Screenshots/", NULL }; // Corrected line: added comma before NULL
 
 // Volume commands
